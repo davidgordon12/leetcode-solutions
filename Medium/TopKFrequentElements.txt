@@ -1,0 +1,15 @@
+public class Solution {
+    public int[] TopKFrequent(int[] nums, int k) {
+        var res = new Dictionary<int, int>();
+        foreach(var num in nums) {
+            if(res.ContainsKey(num)) {
+                res[num]++;
+            }
+            else {
+                res.Add(num, 1);
+            }
+        }
+
+        return res.OrderByDescending(x=>x.Value).Select(x=>x.Key).Take(k).ToArray();
+    }
+}
