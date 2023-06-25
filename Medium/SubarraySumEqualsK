@@ -1,0 +1,20 @@
+public class Solution {
+    public int SubarraySum(int[] nums, int k) {
+        int count = 0;
+        int val = 0;
+        for(int i = 0; i < nums.Length; i++) {
+            val = nums[i];
+            if(val == k) {
+                count++;
+            }
+            for(int j = i+1; j < nums.Length; j++) {
+                val += nums[j];
+                if(val == k) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+}
